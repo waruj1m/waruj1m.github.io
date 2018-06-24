@@ -5,27 +5,20 @@
   font-weight: normal;
   font-style: normal; }
 
-/* =======================================================
-*
-* 	Template Style 
-*	Edit this section
-*
-* ======================================================= */
-#waru-bg-color {
-  background-color: #666666;
-}
+
 body {
   font-family: "Quicksand", Arial, sans-serif;
   font-weight: 400;
   font-size: 15px;
   line-height: 1.8;
+  background:	#fffff2;
   color: rgba(0, 0, 0, 0.7); }
   @media screen and (max-width: 992px) {
     body {
       font-size: 16px; } }
 
 a {
-  color: #F75940;
+  color: black;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s; }
@@ -87,7 +80,7 @@ figure {
   left: 0;
   overflow-y: scroll;
   z-index: 1001;
-  background: #fff;
+  background: 	#fffff2;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s; }
@@ -117,7 +110,7 @@ figure {
     #colorlib-aside #colorlib-logo a {
       display: inline-block;
       text-align: center;
-      /* background: #000; */
+      background: #fffff2;
       padding: .5em .8em;
       color: #fff;
       letter-spacing: 10px;
@@ -1103,6 +1096,9 @@ body.offcanvas {
   transition: 0.3s; }
   #sticky_item.is_stuck {
     margin-top: 10px; }
+  #logo-img {
+    border:1px solid #021a40;
+  }
 
 @media screen and (max-width: 992px) {
   .sticky-parent {
