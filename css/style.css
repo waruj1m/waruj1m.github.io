@@ -11,6 +11,9 @@
 *	Edit this section
 *
 * ======================================================= */
+#waru-bg-color {
+  background-color: #666666;
+}
 body {
   font-family: "Quicksand", Arial, sans-serif;
   font-weight: 400;
@@ -114,7 +117,7 @@ figure {
     #colorlib-aside #colorlib-logo a {
       display: inline-block;
       text-align: center;
-      background: #000;
+      /* background: #000; */
       padding: .5em .8em;
       color: #fff;
       letter-spacing: 10px;
