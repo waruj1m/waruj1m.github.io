@@ -11,7 +11,7 @@ body {
   font-weight: 400;
   font-size: 15px;
   line-height: 1.8;
-  background:	#fffff2;
+  background:	#f9f9f9;
   color: rgba(0, 0, 0, 0.7); }
   @media screen and (max-width: 992px) {
     body {
@@ -80,7 +80,7 @@ figure {
   left: 0;
   overflow-y: scroll;
   z-index: 1001;
-  background: 	#fffff2;
+  background: 	#f9f9f9;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s; }
@@ -110,7 +110,7 @@ figure {
     #colorlib-aside #colorlib-logo a {
       display: inline-block;
       text-align: center;
-      background: #fffff2;
+      background: #f9f9f9;
       padding: .5em .8em;
       color: #fff;
       letter-spacing: 10px;
