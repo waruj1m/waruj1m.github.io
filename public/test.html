@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CircleCheck Test</title>
 
-    <script type="text/javascript" src="api.js"></script>
+    <!-- <script type="text/javascript" src="api.js"></script> -->
     <script type="text/javascript">
         geotab.addin.myCustomPage1 = () => {
         // Initialize required Add-In variables
@@ -42,11 +42,11 @@
             document.getElementById('user').innerHTML = json.result.credentials.userName;
             document.getElementById('session-id').innerHTML = json.result.credentials.sessionId;
             document.getElementById('database').innerHTML = json.result.credentials.database;
-            console.log(json.result.credentials);
+            console.log(json.result.credentials)
 
             document.getElementById('mobilecheck').innerHTML = api.mobile.exists();	
         }
-        request.send();
+        request.send()
 
         var api = GeotabApi(function (authenticateCallback) {
                 
@@ -92,7 +92,7 @@
     <div style="display:flex; align-items: center;">database: <p id='database'></p></div>
     <div style="display:flex; align-items: center;"></div><p id="location"></p></div>
     <div style="display:flex; align-items: center;">mobile?: </div><p id="mobilecheck"></p></div>
-    <button id='gpsButton' onclick="getLocation()">Get GPS location</button>
+    <button id='gpsButton'>Get GPS location</button>
 
     <!-- <script>
         var x = document.getElementById("location");
