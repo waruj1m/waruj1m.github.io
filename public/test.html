@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CircleCheck Test</title>
 
-    <!-- <script type="text/javascript" src="api.js"></script> -->
     <script type="text/javascript">
         geotab.addin.myCustomPage1 = () => {
         // Initialize required Add-In variables
@@ -19,6 +18,7 @@
         }
         return {
             initialize(api, state, callback) {
+                document.getElementById('mobilecheck').innerHTML = api.mobile.exists();	
             callback();
             },
             focus(api, state) {
@@ -42,11 +42,10 @@
             document.getElementById('user').innerHTML = json.result.credentials.userName;
             document.getElementById('session-id').innerHTML = json.result.credentials.sessionId;
             document.getElementById('database').innerHTML = json.result.credentials.database;
-            console.log(json.result.credentials)
+            console.log(json.result.credentials);
 
-            document.getElementById('mobilecheck').innerHTML = api.mobile.exists();	
         }
-        request.send()
+        request.send();
 
         var api = GeotabApi(function (authenticateCallback) {
                 
@@ -66,21 +65,21 @@
             });
 
         // Sample API invocation retrieves a single "Device" object
-        api.call('Get', {
-            typeName: 'Device',
-            resultsLimit: 1
-        }, function (result) {
-            if (result) {
-                console.log(result);
-            }
-        }, function (err) {
-            console.error(err);
-        });
+        // api.call('Get', {
+        //     typeName: 'Device',
+        //     resultsLimit: 1
+        // }, function (result) {
+        //     if (result) {
+        //         console.log(result);
+        //     }
+        // }, function (err) {
+        //     console.error(err);
+        // });
 
         // Retrieves the API user session
-        api.getSession(function (session) {
-            console.log(session);
-        });
+        // api.getSession(function (session) {
+        //     console.log(session);
+        // });
         
 
     </script>
@@ -92,7 +91,9 @@
     <div style="display:flex; align-items: center;">database: <p id='database'></p></div>
     <div style="display:flex; align-items: center;"></div><p id="location"></p></div>
     <div style="display:flex; align-items: center;">mobile?: </div><p id="mobilecheck"></p></div>
-    <button id='gpsButton'>Get GPS location</button>
+    <button id='gpsButton' onclick="getLocation()">Get GPS location</button>
+
+    version 0.0.3
 
     <!-- <script>
         var x = document.getElementById("location");
