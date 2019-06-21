@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>session ID</title>
+    <script type="text/javascript">
+
+var request = new XMLHttpRequest()
+var username = "ccandy00@hotmail.com"
+var password = "candy1"
+
+// Open a new connection, using the GET request on the URL endpoint
+request.open('GET', `https://my.geotab.com/apiv1/Authenticate?userName=${username}&password=${password}`, true)
+
+request.onload = function () {
+  var json = JSON.parse(request.responseText)
+
+  console.log("session id: ", json.result.credentials.sessionId)
+  console.log("database: ", json.result.credentials.database)
+  }
+
+request.send()
+
+    
+    </script>
+</head>
+<body>
+    <img src="images/icon.png">
+    session id and database in console.log
+</body>
+</html>
