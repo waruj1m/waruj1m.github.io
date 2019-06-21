@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CircleCheck Test</title>
 
-    <!-- <script type="text/javascript" src="api.js"></script> -->
+    <script type="text/javascript" src="api.js"></script>
     <script type="text/javascript">
         geotab.addin.myCustomPage1 = () => {
         // Initialize required Add-In variables
@@ -23,30 +23,66 @@
             },
             focus(api, state) {
             // User interface is available
-            document.getElementById('mobilecheck').innerHTML = api.mobile.exists();	
-            api.mobile.geolocation.getCurrentPosition(function (position) { 
-                console.log("getting gps location")
-            }, function (error) { }, { enableHighAccuracy: true })
-        }
             },
             blur(api, state) {
             // Save any Add-In state
             }
          };
-        
+        };
+
         var request = new XMLHttpRequest()
         var username = "ccandy00@hotmail.com"
         var password = "candy1"
         
         request.open('GET', `https://my.geotab.com/apiv1/Authenticate?userName=${username}&password=${password}`, true)
+
         request.onload = function () {
             var json = JSON.parse(request.responseText)
+
             document.getElementById('user').innerHTML = json.result.credentials.userName;
             document.getElementById('session-id').innerHTML = json.result.credentials.sessionId;
             document.getElementById('database').innerHTML = json.result.credentials.database;
-            console.log(json.result.credentials)
+            console.log(json.result.credentials);
+
+            document.getElementById('mobilecheck').innerHTML = api.mobile.exists();	
         }
-        request.send()
+        request.send();
+
+        var api = GeotabApi(function (authenticateCallback) {
+                
+                // Put handling code here that executes when:
+                //      a) We don't have credentials yet (first page load)
+                //      b) The credentials have expired (password changed or server moved)
+                //      c) You've called "api.forget()"
+                // For example, show the login dialog if it is hidden, or prompt the user to enter their credentials
+                
+                authenticateCallback('server', 'database', 'userName', 'password', function(err) {
+                    console.error(err);
+                });
+
+            }, {
+                // Overrides for default options
+                rememberMe: false
+            });
+
+        // Sample API invocation retrieves a single "Device" object
+        api.call('Get', {
+            typeName: 'Device',
+            resultsLimit: 1
+        }, function (result) {
+            if (result) {
+                console.log(result);
+            }
+        }, function (err) {
+            console.error(err);
+        });
+
+        // Retrieves the API user session
+        api.getSession(function (session) {
+            console.log(session);
+        });
+        
+
     </script>
 </head>
 <body>
@@ -56,8 +92,7 @@
     <div style="display:flex; align-items: center;">database: <p id='database'></p></div>
     <div style="display:flex; align-items: center;"></div><p id="location"></p></div>
     <div style="display:flex; align-items: center;">mobile?: </div><p id="mobilecheck"></p></div>
-    <button id='gpsButton'>Get GPS location</button>
-    version 0.0.3
+    <button id='gpsButton' onclick="getLocation()">Get GPS location</button>
 
     <!-- <script>
         var x = document.getElementById("location");
@@ -68,6 +103,7 @@
             // } else { 
             // x.innerHTML = "Geolocation is not supported by this browser.";
             // }
+
             api.mobile.geolocation.getCurrentPosition(function (position) { }, function (error) { }, { enableHighAccuracy: true })
         }
         
