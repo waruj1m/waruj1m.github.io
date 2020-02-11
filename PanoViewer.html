@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot spots</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <style>
+    #panorama {
+        width: 600px;
+        height: 400px;
+    }
+    </style>
+</head>
+<body>
+
+<div id="panorama"></div>
+<script>
+pannellum.viewer('panorama', {
+    "type": "equirectangular",
+    "panorama": "https://waruj1m.github.io/images/IMG_0624.jpg",
+    "autoLoad": true,
+    /*
+     * Uncomment the next line to print the coordinates of mouse clicks
+     * to the browser's developer console, which makes it much easier
+     * to figure out where to place hot spots. Always remove it when
+     * finished, though.
+     */
+    //"hotSpotDebug": true,
+    "hotSpots": [
+        {
+            "pitch": 14.1,
+            "yaw": 1.5,
+            "type": "info",
+            "text": "Click here to Travel",
+            "URL": "#"
+        },
+        {
+            "pitch": -9.4,
+            "yaw": 222.6,
+            "type": "info",
+            "text": "Room 2"
+        },
+        {
+            "pitch": -0.9,
+            "yaw": 144.4,
+            "type": "info",
+            "text": "Room 3"
+        }
+    ]
+});
+</script>
+<!-- Firebase Integration below -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCTshI-O1nZ51l03gXi_PlljLR2wBqRbRE",
+    authDomain: "move-vr.firebaseapp.com",
+    databaseURL: "https://move-vr.firebaseio.com",
+    projectId: "move-vr",
+    storageBucket: "move-vr.appspot.com",
+    messagingSenderId: "1030345272474",
+    appId: "1:1030345272474:web:953feb3452e9d16de78323",
+    measurementId: "G-ZDLR7HCD3Y"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+</body>
+</html>
