@@ -42,7 +42,7 @@ update_gameover()
 elseif mode=="win" then
 end
 
-if complives==1 then
+if complives==21 then
 mode="gameover"
 end
 
@@ -204,9 +204,7 @@ if btn(5) then
  cls()
 	mode = "start"
 	if pad_w < 90 then
- pad_w=pad_w+2
- elseif pad_w > 100 then
- pad_w=24
+ pad_w=pad_w+5
  else
  pad_w=24
  end
@@ -220,7 +218,7 @@ cls(5)
 rect(15,45,110,70,11)
 print("you win!!!",45,50,11)
 print("thanks for playing!",25,60,11)
-print("now try hard mode!",25,80,11)
+print("now try it harder!",25,80,11)
 line(20,57,105,57,11)
 print("press ❎ to continue",23,100,11)
 if btn(5) then
@@ -228,13 +226,12 @@ if btn(5) then
  complives=0
  mode="start"
  
- if pad_w == 20 or pad_w == 24 then
- pad_w=pad_w-2
- elseif pad_w == 3 then
- pad_w=10
- else
- pad_w=10
+ if pad_w <30 then
+ pad_w=pad_w-5
+ elseif cpad_w > 5 then
+ pad_w=6
  end
+ pad_w=10
 	update_start()
 	end
 end
