@@ -204,7 +204,7 @@ if btn(5) then
  cls()
 	mode = "start"
 	if pad_w < 90 then
- pad_w=pad_w+5
+ pad_w=pad_w+10
  else
  pad_w=24
  end
