@@ -3,7 +3,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>James Colby Freelancer</title>
+	<title>James Colby Director of Polyphasic Developers Ltd.</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -23,7 +23,7 @@
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
 
-	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
@@ -43,410 +43,246 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
+	<style>
+		:root {
+			--terminal-bg: #1a1a1a;
+			--terminal-text: #00ff00;
+			--terminal-accent: #00ffff;
+			--terminal-dim: #666666;
+		}
+
+		body {
+			background-color: var(--terminal-bg);
+			color: var(--terminal-text);
+			font-family: 'JetBrains Mono', monospace;
+			line-height: 1.6;
+			margin: 0;
+			padding: 0;
+		}
+
+		.terminal-container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 2rem;
+			width: 100%;
+			box-sizing: border-box;
+		}
+
+		.terminal-header {
+			border-bottom: 2px solid var(--terminal-text);
+			padding-bottom: 1rem;
+			margin-bottom: 2rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.ascii-art {
+			white-space: pre;
+			font-size: 12px;
+			color: var(--terminal-accent);
+			margin: 2rem 0;
+			text-align: center;
+			display: block;
+			width: 100%;
+			overflow-x: auto; /* Allows horizontal scrolling if needed */
+		}
+
+		.terminal-nav {
+			margin: 2rem 0;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1rem;
+		}
+
+		.terminal-nav a {
+			color: var(--terminal-text);
+			text-decoration: none;
+			transition: color 0.3s;
+			white-space: nowrap;
+		}
+
+		.terminal-nav a:hover {
+			color: var(--terminal-accent);
+		}
+
+		.terminal-section {
+			margin: 3rem 0;
+			padding: 0 1rem;
+		}
+
+		.terminal-prompt {
+			color: var(--terminal-accent);
+		}
+
+		.terminal-cursor {
+			display: inline-block;
+			width: 10px;
+			height: 20px;
+			background-color: var(--terminal-text);
+			animation: blink 1s infinite;
+		}
+
+		@keyframes blink {
+			50% { opacity: 0; }
+		}
+
+		.social-links {
+			margin-top: 2rem;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1rem;
+		}
+
+		.social-links a {
+			color: var(--terminal-dim);
+			text-decoration: none;
+			white-space: nowrap;
+		}
+
+		.social-links a:hover {
+			color: var(--terminal-accent);
+		}
+
+		/* Responsive Design */
+		@media screen and (max-width: 768px) {
+			.terminal-container {
+				padding: 1rem;
+			}
+
+			.ascii-art {
+				font-size: 10px; /* Smaller font size for mobile */
+				margin: 1rem 0;
+			}
+
+			.terminal-nav {
+				justify-content: center;
+				text-align: center;
+			}
+
+			.terminal-nav a {
+				padding: 0.5rem;
+				font-size: 0.9rem;
+			}
+
+			.terminal-section {
+				margin: 2rem 0;
+				padding: 0 0.5rem;
+			}
+
+			h1 {
+				font-size: 1.5rem;
+			}
+
+			h2 {
+				font-size: 1.2rem;
+			}
+
+			p {
+				font-size: 0.9rem;
+			}
+
+			.social-links {
+				justify-content: center;
+			}
+		}
+
+		/* Small mobile devices */
+		@media screen and (max-width: 480px) {
+			.ascii-art {
+				font-size: 8px; /* Even smaller font size for very small devices */
+			}
+
+			.terminal-nav a {
+				font-size: 0.8rem;
+				padding: 0.3rem;
+			}
+
+			.terminal-container {
+				padding: 0.5rem;
+			}
+		}
+
+		/* Ensure text doesn't overflow on small screens */
+		* {
+			word-wrap: break-word;
+			overflow-wrap: break-word;
+		}
+
+		/* Improve touch targets for mobile */
+		@media (hover: none) {
+			.terminal-nav a,
+			.social-links a {
+				padding: 0.5rem;
+				min-height: 44px; /* Minimum touch target size */
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+	</style>
+
 	</head>
 	<body>
-	<div id="colorlib-page">
-		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
-		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
-			<h1 id="colorlib-logo"><a href="https://polyphasicdevs.com"><img id="logo-img" src="images/PD_Logo.jpg" height="150" width="150" alt="Polyphasic Developers"></a></h1>
-			<nav id="colorlib-main-menu" role="navigation">
-				<ul>
-					<li class="colorlib-active"><a href="index.html">Home</a></li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#services">Services</a></li>
-					<li><a href="#work">Projects</a></li>
-					<li><a href="#contact">Contact</a></li>
-				</ul>
-			</nav>
-
-			<div class="footer">
-				<ul>
-					<li><a href="https://facebook.com/james.colby.313"><i class="icon-facebook2"></i></a></li>
-					<li><a href="https://twitter.com/colbystech"><i class="icon-twitter2"></i></a></li>
-					<li><a href="https://instagram.com/james.colby.hk"><i class="icon-instagram"></i></a></li>
-					<li><a href="https://linkedin.com/in/james-colby-freelancer"><i class="icon-linkedin2"></i></a></li>
-				</ul>
-				<script src="https://apis.google.com/js/platform.js" async defer></script>
-<div class="g-partnersbadge" data-agency-id="4013248633"></div>
+	<div class="terminal-container">
+		<div class="terminal-header">
+			<div class="ascii-art">
+				╔══════════════════════════════════════════════════════════════╗
+				║                 POLYPHASIC DEVELOPERS LTD.                   ║
+				╚══════════════════════════════════════════════════════════════╝
 			</div>
-
-		</aside>
-
-		<div id="colorlib-main">
-			<aside id="colorlib-hero" class="js-fullheight">
-				<div class="flexslider js-fullheight">
-					<ul class="slides">
-				   	<li style="background-image: url(images/services_mockup-slant.jpg);">
-				   		<div class="overlay"></div>
-				   		<div class="waru-bg-color container-fluid">
-				   			<div class="row">
-					   			<div class="col-md-8 col-md-offset-2 col-md-pull-2 js-fullheight slider-text">
-					   				<div class="slider-text-inner">
-					   					<div class="desc">
-						   					<h1>PPC Specialist and Web Application Developer</h1>
-						   					<h2>I maintain a wealth of experience and skills to help Growth Hack your business!</h2>
-												<p><a href="https://linkedin.com/in/james-colby-freelancer" target="_blank" class="btn btn-primary btn-learn">LinkedIn Profile<i class="icon-arrow-right3"></i></a></p>
-											</div>
-					   				</div>
-					   			</div>
-					   		</div>
-				   		</div>
-				   	</li>
-				   	<li style="background-image: url(images/whyChooseUs-mockup.jpg);">
-				   		<div class="overlay"></div>
-				   		<div class="container-fluid">
-				   			<div class="row">
-					   			<div class="col-md-8 col-md-offset-2 col-md-pull-2 js-fullheight slider-text">
-					   				<div class="slider-text-inner">
-					   					<div class="desc">
-						   					<h1>Drive the Right Traffic at the Right time to your Site</h1>
-												<h2>Certified Google Partner, with over 3 years of experience in the PPC Industry</h2>
-												<p><a href="https://www.google.com/partners/?authuser=2&hl=en-GB#a_profile;idtf=4013248633;" target="_blank" class="btn btn-primary btn-learn">Google Partner Profile<i class="icon-arrow-right3"></i></a></p>
-											</div>
-					   				</div>
-					   			</div>
-					   		</div>
-				   		</div>
-				   	</li>
-				   	<li style="background-image: url(images/services-iMac-mockup.jpg);">
-				   		<div class="overlay"></div>
-				   		<div class="container-fluid">
-				   			<div class="row">
-					   			<div class="col-md-8 col-md-offset-2 col-md-pull-2 js-fullheight slider-text">
-					   				<div class="slider-text-inner">
-					   					<div class="desc">
-						   					<h1>Full stack Web Application Development</h1>
-												<h2>Cost effectively Build web sites, apps and more!</h2>
-												<p><a href="#work" class="btn btn-primary btn-learn">My Work<i class="icon-arrow-right3"></i></a></p>
-											</div>
-					   				</div>
-					   			</div>
-					   		</div>
-				   		</div>
-				   	</li>
-				  	</ul>
-			  	</div>
-			</aside>
-
-			<div class="colorlib-about">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-6">
-							<div class="about-img animate-box" data-animate-effect="fadeInLeft" style="background-image: url(images/);">
-								<div class="about-img-2 animate-box" data-animate-effect="fadeInRight" style="background-image: url(images/profilepic.jpeg"></div>
-							</div>
-						</div>
-						<div id="about" class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-								
-							<div class="about-desc">
-								<span class="heading-meta">Welcome</span>
-								<h3>Hello! My name is James Colby</h3>
-								<p>I am a full stack Web Developer and PPC Specialist from the UK but presently based in the Netherlands, following an 8 year stint in Hong Kong! From system deployment and administration, to coding projects in web based languages and frameworks, to security and auditing. My hobbies and professional projects vary. I offer a multitude of services across an array of technical fields.</p>
-							</div>
-							<script src="https://apis.google.com/js/platform.js" async defer></script>
-	<div class="g-partnersbadge" data-agency-id="4013248633" style="float: right;"></div>
-							<div class="fancy-collapse-panel">
-								<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-									<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingOne">
-									        <h4 class="panel-title">
-									            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Why choose me?
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-									         <div class="panel-body">
-									            <div class="row">
-										      		<div class="col-md-6">
-										      			<p>I'm dedicated, punctual, and hardworking in my professional and personal life. I maintain a wealth of skills in the tech industry that provide me with the confidence and ability to carry out complex tasks in an efficient manner. As a Freelancer, my paycheck literally relies on succeeding for You!</p>
-										      		</div>
-										      		<div class="col-md-6">
-										      			<p>For the past two years I have been working for a number of clients in a freelance position, as a PPC manager and Web Developer, whose roles also include Site/Host Administration, Management and Security, Web development and optimisation, as well as copywriting and content curation / creation.</p>
-										      		</div>
-										      	</div>
-									         </div>
-									    </div>
-									</div>
-									<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingTwo">
-									        <h4 class="panel-title">
-									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">What I do?
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-									        <div class="panel-body">
-									            <p>I posses a host of skills in the Technology Industry</p>
-													<ul>
-														<li>PPC Account Manager</li>
-														<li>SEM/SEO/SEA Optimisation Specialist</li>
-														<li>Web Application Developer</li>
-														<li>Wordpress / CMS Specialist</li>
-														<li>Systems Administrator (Linux/Windows/Mac OSX)</li>
-														<li>Security Auditing and Penetration Testing</li>
-														<li>Mobile Application Developer (Swift, C#)</li>
-													</ul>
-									        </div>
-									    </div>
-									</div>
-									<!-- <div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingThree">
-									        <h4 class="panel-title">
-									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">My Specialties
-									            </a>
-									        </h4>
-									    </div>
-									    <!-- <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-									        <div class="panel-body">
-									            <p>Far far away, behind the word <strong>mountains</strong>, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>	
-									        </div>
-									    </div> -->
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div id="colorlib-main" class="colorlib-services">
-				<div class="container-fluid" id="services">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3">
-							<span class="heading-meta">What do I do?</span>
-							<h2 class="colorlib-heading animate-box" data-animate-effect="fadeInLeft">Some Services that I Offer</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="colorlib-feature animate-box" data-animate-effect="fadeInLeft">
-								<div class="colorlib-icon">
-									<i class="icon-tag"></i>
-								</div>
-								<div class="colorlib-text">
-									<h3>Branding</h3>
-									<p>Branding is of the utmost important, I can help you Hack the Growth of your Brand, with branding campaigns and other marketing techniques</p>
-								</div>
-							</div>
-
-							<div class="colorlib-feature animate-box" data-animate-effect="fadeInLeft">
-								<div class="colorlib-icon">
-									<i class="icon-pen2"></i>
-								</div>
-								<div class="colorlib-text">
-									<h3>Mobile Application Development</h3>
-									<p>Hybrid Applications with Ionic or similar Hybrid Frameworks. Native Application Development utilising my expertise with Swift and C#</p>
-								</div>
-							</div>
-
-							<div class="colorlib-feature animate-box" data-animate-effect="fadeInLeft">
-								<div class="colorlib-icon">
-									<i class="icon-search3"></i>
-								</div>
-								<div class="colorlib-text">
-									<h3>Search Engine Optimization</h3>
-									<p>Everything I create is created optimised for Search Engine Advertising. I can also optimise your existing content.  </p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="colorlib-feature animate-box" data-animate-effect="fadeInLeft">
-								<div class="colorlib-icon">
-									<i class="icon-paperplane"></i>
-								</div>
-								<div class="colorlib-text">
-									<h3>Web Application Development</h3>
-									<p>Wordpress and other CMS websites, tailored to your tastes and requirements and expediently produced to your specification. </p>
-								</div>
-							</div>
-
-							<div class="colorlib-feature animate-box" data-animate-effect="fadeInLeft">
-								<div class="colorlib-icon">
-									<i class="icon-device-desktop"></i>
-								</div>
-								<div class="colorlib-text">
-									<h3>User Interface</h3>
-									<p>User Interface & User Experience Design and Development has never been more important than now! I help you develop the most cost effective and time efficient solutions. </p>
-								</div>
-							</div>
-
-							<div class="colorlib-feature animate-box" data-animate-effect="fadeInLeft">
-								<div class="colorlib-icon">
-									<i class="icon-help"></i>
-								</div>
-								<div class="colorlib-text">
-									<h3>Technical Support</h3>
-									<p>From 24/7 monitoring to helpdesk support, I have you covered.</p>
-							</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div id="colorlib-main" class="colorlib-work">
-				<div id="work" class="container-fluid">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3">
-							<span class="heading-meta">My Work</span>
-							<h2 class="colorlib-heading animate-box" data-animate-effect="fadeInLeft">Recent Projects</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="project" style="background-image: url(images/lambda-large.jpg);">
-								<div class="desc">
-									<div class="con">
-										<h3><a href="lambdares.com">Research Corporation</a></h3>
-										<span>Complete Site Overhaul, PPC Marketing Overhaul & Management</span>
-										<p class="icon">
-											<span><a href="lambdares.com"><i class="icon-share3"></i></a></span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="project" style="background-image: url(images/restoringlifeherbs-large.png);">
-								<div class="desc">
-									<div class="con">
-										<h3><a href="restoringlifeherbs.com">Restoring Life Herbs Webshop</a></h3>
-										<span>Built and maintained an Ecommerce Solution for small business owner</span>
-										<p class="icon">
-											<span><a href="restoringlifeherbs.com"><i class="icon-share3"></i></a></span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="project" style="background-image: url(images/jewelrybybeavers-large.png);">
-								<div class="desc">
-									<div class="con">
-										<h3><a href="jewelrybybeavers.com">Jewelry By Beavers Webshop</a></h3>
-										<span>Built and maintained an Ecommerce Solution for small business owner</span>
-										<p class="icon">
-											<span><a href="jewelrybybeavers.com"><i class="icon-share3"></i></a></span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="project" style="background-image: url(images/mandarinblueprint-large.jpg);">
-								<div class="desc">
-									<div class="con">
-										<h3><a href="MandarinBluePrint.com">Mandarin Blueprint</a></h3>
-										<span>Designed, Developed & Published a Mobile Application</span>
-										<p class="icon">
-											<span><a href="mandarinblueprint.com"><i class="icon-share3"></i></a></span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="project" style="background-image: url(images/luckyeng-large.png);">
-								<div class="desc">
-									<div class="con">
-										<h3><a href="http://www.polyphasicdevs.com/luckyenglish/index.html">Lucky English ESL Application</a></h3>
-										<span>Designed, Built and Published a Mobile English Learning Application for Chinese learners.</span>
-										<p class="icon">
-											<span><a href="http://www.polyphasicdevs.com/luckyenglish/index.html"><i class="icon-share3"></i></a></span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="project" style="background-image: url();">
-									<figure><embed src="https://wakatime.com/share/@3f7197ac-0a99-455a-a1cf-4a644c5c4eda/626b41ba-a2c0-4d6c-82b8-5e8621c79cf3.svg"></embed></figure>
-								<div class="desc">
-									<div class="con">
-										<h3><a href="https://wakatime.com/@3f7197ac-0a99-455a-a1cf-4a644c5c4eda">My Coding Activity</a></h3>
-										<span>I can't always discuss what I'm working on, but as you can see, I'm awlays working on Something!</span>
-										<p class="icon">
-											<span><a href="https://wakatime.com/@3f7197ac-0a99-455a-a1cf-4a644c5c4eda"><i class="icon-share3"></i></a></span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div> 
-					</div>
-				</div>
-
-
-
-		<div id="contact">
-
-			<div class="colorlib-contact">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<span class="heading-meta">Got a Question?</span>
-							<h2 class="colorlib-heading animate-box" data-animate-effect="fadeInLeft">Get in Touch!</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-5 col-md-push-6">
-							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
-								<div class="colorlib-icon">
-									<i class="icon-globe-outline"></i>
-								</div>
-								<div class="colorlib-text">
-									<p><a href="mailto:colbystuition@bitrix24.com">E-Mail Me</a></p>
-								</div>
-							</div>
-
-							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
-								<div class="colorlib-icon">
-									<i class="icon-map"></i>
-								</div>
-								<div class="colorlib-text">
-									<p><a href="#">Currently Based In: Haarlem, The Netherlands</a></p>
-								</div>
-							</div>
-
-							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
-								<div class="colorlib-icon">
-									<i class="icon-phone"></i>
-								</div>
-								<div class="colorlib-text">
-									<p><a href="tel://+31615398380">+31 (0) 6 1539 8380</a></p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-7 col-md-pull-5">
-								<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://app.mailjet.com/widget/iframe/3eG7/7FU" width="80%" height="434"></iframe>
-							<!-- <div class="row">
-								<div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box" data-animate-effect="fadeInLeft">
-									<form action="">
-										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Name">
-										</div>
-										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Email">
-										</div>
-										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Phone">
-										</div>
-										<div class="form-group">
-											<textarea name="" id="message" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-										</div>
-										<div class="form-group">
-											<input type="submit" class="btn btn-primary btn-send-message" value="Send Message">
-										</div>
-									</form>
-								</div>
-								
-							</div>
-						</div> -->
-					</div>
-				</div>
-			</div>
-
-			<div id="map"></div>	
 		</div>
+
+		<nav class="terminal-nav">
+			<a href="#home">[HOME]</a>
+			<a href="#about">[ABOUT]</a>
+			<a href="#services">[SERVICES]</a>
+			<a href="https://polyphasicdevs.com/our-projects">[PROJECTS]</a>
+			<a href="#contact">[CONTACT]</a>
+		</nav>
+
+		<section id="home" class="terminal-section">
+		    <div class="terminal-prompt">$ whoami</div>
+		    <h1>James Colby</h1>
+		    <p>Director of <a href="https://polyphasicdevs.com">Polyphasic Developers Ltd.</a></p>
+		    <div class="terminal-prompt">$ cat about.txt</div>
+		    <p>I build powerful applications, drive digital marketing success, and explore cutting-edge technology to solve complex problems.</p>
+		    <div class="terminal-prompt">$ cat skills.txt</div>
+		    <p>Expert in Development (React, React Native, Swift), Digital Marketing (PPC, SEO, Email and Content Marketing), and all round technology enthusiast.</p>
+		</section>
+
+		<section id="about" class="terminal-section">
+		    <div class="terminal-prompt">$ cat bio.txt</div>
+		    <p>I'm James Colby, a versatile developer, digital strategist, and technology enthusiast with over 15 years of experience. 
+		    I've built 360/VR applications for <a href="https://sevenmediainc.com">Seven Media Inc.</a> in Canada, directed digital marketing efforts for <a href="https://lambdares.com">Lambda Research Corporation</a> for over 9 years, 
+			been Technology Director at <a href="https://mobilizz.com">Mobilizz Inc.</a> for around half a decade, and between me and my team of brilliant developers, built a number of scalable apps for clients worldwide.</p>
+ 
+		    <div class="terminal-prompt">$ cat passion.txt</div>
+		    <p>Beyond my work, I'm a passionate technologist. I experiment with HAM radio, LoRa, and custom hardware projects like my cardputer as well as maintain my own home automation systems. 
+		    Whether optimizing networks, exploring IoT, or building automation systems, I'm always pushing the limits of technology and indeed, my own personal development.</p>
+		</section>
+
+		<section id="services" class="terminal-section">
+		    <div class="terminal-prompt">$ ls services/</div>
+		    <ul>
+		        <li><b>Web & Mobile Application Development</b> - Building scalable applications with React, React Native, .NET, and Native solutions.</li>
+		        <li><b>360/VR Development</b> - Creating immersive experiences, including 360/VR apps for my clients.</li>
+		        <li><b>Digital Marketing</b> - PPC, SEO, and SEM strategies to drive growth and optimize your online presence, content & email marketing to grow your audience.</li>
+		        <li><b>Technical Consulting</b> - Providing expertise in networking, cybersecurity, and systems administration for SME's across North America.</li>
+		        <li><b>AI-Powered Solutions</b> - Developing advanced tools using machine learning, automation, and data analysis.</li>
+		    </ul>
+		</section>
+
+		<section id="contact" class="terminal-section">
+		    <div class="terminal-prompt">$ cat contact.txt</div>
+		    <p>Connect with me on:</p>
+		    <div class="social-links">
+		        <a href="https://linkedin.com/in/james-colby-director">[LINKEDIN]</a>
+		        <a href="https://x.com/PolyphasicDev">[X]</a>
+		        <a href="https://github.com/waruj1m">[GITHUB]</a>
+		        <a href="mailto:james@polyphasicdevs.com">[EMAIL]</a>
+		    </div>
+		</section>
 	</div>
 
 	<!-- jQuery -->
@@ -464,25 +300,6 @@
 	<!-- Google Map -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
 	<script src="js/google_map.js"></script>
-	
-	
-	<!-- MAIN JS -->
-	<script src="js/main.js"></script>
-
-	</body>
-
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Flexslider -->
-	<script src="js/jquery.flexslider-min.js"></script>
-	<!-- Sticky Kit -->
-	<script src="js/sticky-kit.min.js"></script>
 	
 	
 	<!-- MAIN JS -->
