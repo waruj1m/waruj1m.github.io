@@ -44,6 +44,74 @@
 	<![endif]-->
 
 	<style>
+		#home {
+			position: relative;
+			padding-top: 2rem;
+		}
+
+		.profile-picture {
+			position: absolute;
+			top: 6rem;
+			right: 1rem;
+			border: 3px solid var(--terminal-text);
+			width: 150px;
+			height: auto;
+		}
+
+		.profile-picture img {
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+			border-radius: 5px;
+		}
+
+		/* Improved mobile responsiveness */
+		@media screen and (max-width: 768px) {
+			#home {
+				padding-top: 1rem;
+			}
+
+			.profile-picture {
+				position: relative;
+				top: 0;
+				right: 0;
+				width: 120px;
+				margin: 1rem auto;
+				display: block;
+			}
+
+			.terminal-section {
+				padding: 0 1rem;
+			}
+
+			/* Ensure text doesn't overlap with profile picture */
+			#home p {
+				max-width: 100%;
+				margin-right: 0;
+			}
+		}
+
+		@media screen and (max-width: 480px) {
+			.profile-picture {
+				width: 100px;
+				margin: 0.5rem auto;
+			}
+
+			.terminal-section {
+				padding: 0 0.5rem;
+			}
+
+			#home h1 {
+				font-size: 1.5rem;
+				margin-bottom: 0.5rem;
+			}
+
+			#home p {
+				font-size: 0.9rem;
+				margin-bottom: 0.5rem;
+			}
+		}
+
 		:root {
 			--terminal-bg: #1a1a1a;
 			--terminal-text: #00ff00;
@@ -58,6 +126,10 @@
 			line-height: 1.6;
 			margin: 0;
 			padding: 0;
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+			overflow-x: hidden;
 		}
 
 		a, a:visited {
@@ -77,6 +149,9 @@
 			padding: 2rem;
 			width: 100%;
 			box-sizing: border-box;
+			flex: 1;
+			display: flex;
+			flex-direction: column;
 		}
 
 		.terminal-header {
@@ -120,6 +195,8 @@
 		.terminal-section {
 			margin: 3rem 0;
 			padding: 0 1rem;
+			width: 100%;
+			box-sizing: border-box;
 		}
 
 		.terminal-prompt {
@@ -159,6 +236,7 @@
 		@media screen and (max-width: 768px) {
 			.terminal-container {
 				padding: 1rem;
+				width: 100%;
 			}
 
 			.ascii-art {
@@ -177,8 +255,8 @@
 			}
 
 			.terminal-section {
-				margin: 2rem 0;
 				padding: 0 0.5rem;
+				width: 100%;
 			}
 
 			h1 {
@@ -212,6 +290,10 @@
 			.terminal-container {
 				padding: 0.5rem;
 			}
+
+			.terminal-section {
+				padding: 0 0.25rem;
+			}
 		}
 
 		/* Ensure text doesn't overflow on small screens */
@@ -231,12 +313,68 @@
 				justify-content: center;
 			}
 		}
+
+		.home-flex {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			gap: 2rem;
+		}
+		.home-text {
+			flex: 1 1 0%;
+		}
+		.profile-picture {
+			position: static;
+			width: 130px;
+			height: auto;
+			border: 3px solid var(--terminal-text);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.profile-picture img {
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+			border-radius: 5px;
+		}
+		@media screen and (max-width: 900px) {
+			.home-flex {
+				gap: 1rem;
+			}
+			.profile-picture {
+				width: 100px;
+			}
+		}
+		@media screen and (max-width: 768px) {
+			.home-flex {
+				flex-direction: column;
+				align-items: center;
+				gap: 1rem;
+			}
+			.profile-picture {
+				width: 100px;
+				margin: 0 auto;
+			}
+			.home-text {
+				width: 100%;
+				text-align: center;
+			}
+		}
+		@media screen and (max-width: 480px) {
+			.profile-picture {
+				width: 80px;
+			}
+			.home-text h1 {
+				font-size: 1.2rem;
+			}
+		}
 	</style>
 
 	</head>
 	<body>
 	<div class="terminal-container">
-		<div class="terminal-header">
+		<div class="terminal-header" style="position: relative;">
 			<div class="ascii-art">
 				╔══════════════════════════════════════════════════════════════╗
 				║                 POLYPHASIC DEVELOPERS LTD.                   ║
@@ -253,20 +391,32 @@
 		</nav>
 
 		<section id="home" class="terminal-section">
-		    <div class="terminal-prompt">$ whoami</div>
-		    <h1>James Colby</h1>
-		    <p>Director of <a href="https://polyphasicdevs.com">Polyphasic Developers Ltd.</a></p>
-		    <div class="terminal-prompt">$ cat about.txt</div>
-		    <p>I build powerful applications, drive digital marketing success, and explore cutting-edge technology to solve complex problems.</p>
-		    <div class="terminal-prompt">$ cat skills.txt</div>
-		    <p>Expert in Development (React, React Native, Swift), Digital Marketing (PPC, SEO, Email and Content Marketing), and all round technology enthusiast.</p>
+		    <div class="home-flex">
+		        <div class="home-text">
+		            <div class="terminal-prompt">$ whoami</div>
+		            <h1>JAMES COLBY</h1>
+		            <p>Founder & CEO of <a href="https://polyphasicdevs.com">Polyphasic Developers Ltd.</a></p>
+		            <p>Co-Founder of <a href="https://maruinteractive.com">Maru Interactive</a>, proudly working on the upcoming My Maru app.</p>
+		            <div class="terminal-prompt">$ cat about.txt</div>
+		            <p>I build powerful applications, drive digital marketing success, and explore cutting-edge technology to solve complex problems. My work spans software development, cybersecurity, digital marketing, and strategic consulting, empowering businesses of all sizes to achieve their goals.</p>
+		            <div class="terminal-prompt">$ cat skills.txt</div>
+		            <p>✅ Development: React, React Native, Swift, .NET, and scalable cloud solutions.<br>
+		            ✅ Digital Marketing: PPC, SEO, Content Marketing, and Conversion Optimization.<br>
+		            ✅ Technical Leadership: Project Management, Strategic Consulting, and Digital Transformation.</p>
+		        </div>
+		        <div class="profile-picture">
+		            <img src="images/profile-picture.png" alt="James Colby" />
+		        </div>
+		    </div>
 		</section>
 
 		<section id="about" class="terminal-section">
 		    <div class="terminal-prompt">$ cat bio.txt</div>
 		    <p>I'm James Colby, a versatile developer, digital strategist, and technology enthusiast with over 15 years of experience. 
-		    I've built 360/VR applications for <a href="https://sevenmediainc.com">Seven Media Inc.</a> in Canada, directed digital marketing efforts for <a href="https://lambdares.com">Lambda Research Corporation</a> for over 9 years, 
-			been Technology Director at <a href="https://mobilizz.com">Mobilizz Inc.</a> for around half a decade, and between me and my team of brilliant developers, built a number of scalable apps for clients worldwide.</p>
+		    My journey has taken me from building immersive 360/VR applications for <a href="https://sevenmediainc.com">Seven Media Inc.</a> in Canada to leading digital marketing for <a href="https://lambdares.com">Lambda Research Corporation</a> for nearly a decade. 
+		    I have also served as Technology Director at <a href="https://mobilizz.com">Mobilizz Inc.</a> for around half a decade, where I helped scale their technology and operations.</p>
+		    <p>Beyond corporate achievements, I lead <a href="https://polyphasicdevs.com">Polyphasic Developers Ltd.</a>, delivering scalable applications and digital solutions to clients worldwide. 
+		    As Co-Founder of <a href="https://maruinteractive.com">Maru Interactive</a>, I'm excited to bring the My Maru app to life—a digital companion powered by AI, helping users achieve their goals while customizing their digital world.</p>
  
 		    <div class="terminal-prompt">$ cat passion.txt</div>
 		    <p>Beyond my work, I'm a passionate technologist. I experiment with HAM radio, LoRa, and custom hardware projects like my cardputer as well as maintain my own home automation systems. 
@@ -276,11 +426,11 @@
 		<section id="services" class="terminal-section">
 		    <div class="terminal-prompt">$ ls services/</div>
 		    <ul>
-		        <li><b>Web & Mobile Application Development</b> - Building scalable applications with React, React Native, .NET, and Native solutions.</li>
-		        <li><b>360/VR Development</b> - Creating immersive experiences, including 360/VR apps for my clients.</li>
-		        <li><b>Digital Marketing</b> - PPC, SEO, and SEM strategies to drive growth and optimize your online presence, content & email marketing to grow your audience.</li>
-		        <li><b>Technical Consulting</b> - Providing expertise in networking, cybersecurity, and systems administration for SME's across North America.</li>
-		        <li><b>AI-Powered Solutions</b> - Developing advanced tools using machine learning, automation, and data analysis.</li>
+		        <li><b>Web & Mobile Application Development:</b> Crafting scalable applications using React, React Native, Swift, .NET, and cloud-native solutions.</li>
+		        <li><b>Digital Marketing:</b> PPC, SEO, Content Marketing, and Strategic Consulting to boost brand visibility and drive conversions.</li>
+		        <li><b>Technical Consulting:</b> Providing strategic guidance in software development, networking, cybersecurity, and digital transformation.</li>
+		        <li><b>AI-Powered Solutions:</b> Leveraging machine learning and automation to create smarter, data-driven applications.</li>
+		        <li><b>360/VR Development:</b> Designing immersive experiences that captivate users.</li>
 		    </ul>
 		</section>
 
@@ -291,7 +441,7 @@
 		        <a href="https://linkedin.com/in/james-colby-director">[LINKEDIN]</a>
 		        <a href="https://x.com/PolyphasicDev">[X]</a>
 		        <a href="https://github.com/waruj1m">[GITHUB]</a>
-		        <a href="mailto:james@polyphasicdevs.com">[EMAIL]</a>
+		        <a href="https://www.instagram.com/polyphasicdevelopers/">[INSTAGRAM]</a>
 		    </div>
 		</section>
 	</div>
@@ -318,4 +468,3 @@
 
 	</body>
 </html>
-
