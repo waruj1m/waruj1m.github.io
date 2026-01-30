@@ -23,7 +23,7 @@
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
 
-	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
@@ -35,6 +35,8 @@
 	<link rel="stylesheet" href="css/flexslider.css">
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
+	<!-- Retro-futuristic style -->
+	<link rel="stylesheet" href="css/retro-futuristic.css">
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
@@ -44,406 +46,227 @@
 	<![endif]-->
 
 	<style>
-		#home {
-			position: relative;
-			padding-top: 2rem;
+		body {
+			background: #000;
+			font-family: 'VT323', monospace;
+			color: #ff6a00;
+			padding: 2rem;
+			margin: 0;
+		}
+
+		a, a:visited {
+			color: #ff6a00;
+			text-decoration: underline;
+			border: none;
+		}
+
+		a:hover, a:focus {
+			color: #994400;
+			text-decoration: none;
+		}
+
+		.terminal-section {
+			margin-bottom: 2rem;
+			border-bottom: 1px solid #331a00;
+			padding-bottom: 2rem;
+			clear: both;
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+			font-family: 'Share Tech Mono', monospace;
+			color: #ff6a00;
+			margin: 0 0 1rem 0;
 		}
 
 		.profile-picture {
-			position: absolute;
-			top: 6rem;
-			right: 1rem;
-			border: 3px solid var(--terminal-text);
+			border: 3px solid #ff6a00;
 			width: 150px;
 			height: auto;
+			float: right;
+			margin: 0 0 20px 20px;
+			box-shadow: 0 0 10px rgba(255, 106, 0, 0.5);
 		}
 
 		.profile-picture img {
 			width: 100%;
 			height: auto;
-			object-fit: cover;
-			border-radius: 5px;
-		}
-
-		/* Improved mobile responsiveness */
-		@media screen and (max-width: 768px) {
-			#home {
-				padding-top: 1rem;
-			}
-
-			.profile-picture {
-				position: relative;
-				top: 0;
-				right: 0;
-				width: 120px;
-				margin: 1rem auto;
-				display: block;
-			}
-
-			.terminal-section {
-				padding: 0 1rem;
-			}
-
-			/* Ensure text doesn't overlap with profile picture */
-			#home p {
-				max-width: 100%;
-				margin-right: 0;
-			}
-		}
-
-		@media screen and (max-width: 480px) {
-			.profile-picture {
-				width: 100px;
-				margin: 0.5rem auto;
-			}
-
-			.terminal-section {
-				padding: 0 0.5rem;
-			}
-
-			#home h1 {
-				font-size: 1.5rem;
-				margin-bottom: 0.5rem;
-			}
-
-			#home p {
-				font-size: 0.9rem;
-				margin-bottom: 0.5rem;
-			}
-		}
-
-		:root {
-			--terminal-bg: #1a1a1a;
-			--terminal-text: #00ff00;
-			--terminal-accent: #00ffff;
-			--terminal-dim: #666666;
-		}
-
-		body {
-			background-color: var(--terminal-bg);
-			color: var(--terminal-text);
-			font-family: 'JetBrains Mono', monospace;
-			line-height: 1.6;
-			margin: 0;
-			padding: 0;
-			min-height: 100vh;
-			display: flex;
-			flex-direction: column;
-			overflow-x: hidden;
-		}
-
-		a, a:visited {
-			color: var(--terminal-accent);
-			text-decoration: underline;
-			transition: color 0.2s;
-		}
-
-		a:hover, a:focus {
-			color: var(--terminal-text);
-			text-decoration: underline;
-		}
-
-		.terminal-container {
-			max-width: 1200px;
-			margin: 0 auto;
-			padding: 2rem;
-			width: 100%;
-			box-sizing: border-box;
-			flex: 1;
-			display: flex;
-			flex-direction: column;
-		}
-
-		.terminal-header {
-			border-bottom: 2px solid var(--terminal-text);
-			padding-bottom: 1rem;
-			margin-bottom: 2rem;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-
-		.ascii-art {
-			white-space: pre;
-			font-size: 12px;
-			color: var(--terminal-text);
-			margin: 2rem 0;
-			text-align: center;
 			display: block;
-			width: 100%;
-			overflow-x: auto; /* Allows horizontal scrolling if needed */
 		}
-
+		
 		.terminal-nav {
-			margin: 2rem 0;
+			margin: 1.5rem 0;
 			display: flex;
 			flex-wrap: wrap;
 			gap: 1rem;
+			border-bottom: 1px solid #331a00;
+			padding-bottom: 1.5rem;
 		}
 
 		.terminal-nav a {
-			color: var(--terminal-text);
+			color: #ff6a00;
 			text-decoration: none;
 			transition: color 0.3s;
 			white-space: nowrap;
+			font-size: 1.2rem;
+			border: none;
 		}
 
 		.terminal-nav a:hover {
-			color: var(--terminal-accent);
+			color: #994400;
 		}
-
-		.terminal-section {
-			margin: 3rem 0;
-			padding: 0 1rem;
-			width: 100%;
-			box-sizing: border-box;
-		}
-
-		.terminal-prompt {
-			color: var(--terminal-accent);
-		}
-
-		.terminal-cursor {
-			display: inline-block;
-			width: 10px;
-			height: 20px;
-			background-color: var(--terminal-text);
-			animation: blink 1s infinite;
-		}
-
-		@keyframes blink {
-			50% { opacity: 0; }
-		}
-
+		
 		.social-links {
-			margin-top: 2rem;
 			display: flex;
 			flex-wrap: wrap;
 			gap: 1rem;
 		}
 
 		.social-links a {
-			color: var(--terminal-dim);
+			color: #994400;
 			text-decoration: none;
 			white-space: nowrap;
+			border: none;
 		}
 
 		.social-links a:hover {
-			color: var(--terminal-accent);
+			color: #ff6a00;
 		}
 
-		/* Responsive Design */
-		@media screen and (max-width: 768px) {
-			.terminal-container {
+		ul {
+			list-style-type: none;
+			padding-left: 0;
+			margin: 0;
+		}
+		
+		li {
+			margin-bottom: 0.5rem;
+		}
+
+		p {
+			margin: 0 0 1rem 0;
+			line-height: 1.6;
+		}
+
+		@media (max-width: 768px) {
+			body {
 				padding: 1rem;
-				width: 100%;
 			}
 
-			.ascii-art {
-				font-size: 10px; /* Smaller font size for mobile */
-				margin: 1rem 0;
+			.profile-picture {
+				float: none;
+				display: block;
+				margin: 0 auto 1rem auto;
 			}
 
 			.terminal-nav {
 				justify-content: center;
-				text-align: center;
-			}
-
-			.terminal-nav a {
-				padding: 0.5rem;
-				font-size: 0.9rem;
-			}
-
-			.terminal-section {
-				padding: 0 0.5rem;
-				width: 100%;
-			}
-
-			h1 {
-				font-size: 1.5rem;
-			}
-
-			h2 {
-				font-size: 1.2rem;
-			}
-
-			p {
-				font-size: 0.9rem;
 			}
 
 			.social-links {
 				justify-content: center;
 			}
 		}
-
-		/* Small mobile devices */
-		@media screen and (max-width: 480px) {
-			.ascii-art {
-				font-size: 8px; /* Even smaller font size for very small devices */
-			}
-
-			.terminal-nav a {
-				font-size: 0.8rem;
-				padding: 0.3rem;
-			}
-
-			.terminal-container {
-				padding: 0.5rem;
-			}
-
-			.terminal-section {
-				padding: 0 0.25rem;
-			}
-		}
-
-		/* Ensure text doesn't overflow on small screens */
-		* {
-			word-wrap: break-word;
-			overflow-wrap: break-word;
-		}
-
-		/* Improve touch targets for mobile */
-		@media (hover: none) {
-			.terminal-nav a,
-			.social-links a {
-				padding: 0.5rem;
-				min-height: 44px; /* Minimum touch target size */
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-			}
-		}
-
-		.home-flex {
-			display: flex;
-			align-items: center;
-			justify-content: flex-start;
-			gap: 2rem;
-		}
-		.home-text {
-			flex: 1 1 0%;
-		}
-		.profile-picture {
-			position: static;
-			width: 130px;
-			height: auto;
-			border: 3px solid var(--terminal-text);
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-		.profile-picture img {
-			width: 100%;
-			height: auto;
-			object-fit: cover;
-			border-radius: 5px;
-		}
-		@media screen and (max-width: 900px) {
-			.home-flex {
-				gap: 1rem;
-			}
-			.profile-picture {
-				width: 100px;
-			}
-		}
-		@media screen and (max-width: 768px) {
-			.home-flex {
-				flex-direction: column;
-				align-items: center;
-				gap: 1rem;
-			}
-			.profile-picture {
-				width: 100px;
-				margin: 0 auto;
-			}
-			.home-text {
-				width: 100%;
-				text-align: center;
-			}
-		}
-		@media screen and (max-width: 480px) {
-			.profile-picture {
-				width: 80px;
-			}
-			.home-text h1 {
-				font-size: 1.2rem;
-			}
-		}
 	</style>
 
 	</head>
-	<body>
-	<div class="terminal-container">
-		<div class="terminal-header" style="position: relative;">
-			<div class="ascii-art">
-				╔══════════════════════════════════════════════════════════════╗
-				║                 POLYPHASIC DEVELOPERS LTD.                   ║
-				╚══════════════════════════════════════════════════════════════╝
-			</div>
+	<body class="crt-container">
+		<div class="crt-monitor">
+			<div class="crt-bezel">
+				<div class="crt-screen">
+					<div class="reflection"></div>
+					<div class="crt-glass"></div>
+					<div class="crt-bulge"></div>
+					<div class="edge-shadow"></div>
+					<div class="curved-distortion"></div>
+					<div class="screen-warp">
+						<div class="screen-inner">
+							<div class="screen-content flicker">
+								<div class="header amber-text">
+									<div class="logo-container">
+									  <div class="logo">PD</div>
+									  <div class="logo-text">POLYPHASIC</div>
+									</div>
+									<div class="system-info">
+									  <div>USER: GUEST</div>
+									  <div class="dim-text">SESSION: 29012026</div>
+									  <div class="dim-text">STATUS: ONLINE</div>
+									</div>
+								</div>
+
+								<nav class="terminal-nav">
+									<a href="#home">[HOME]</a>
+									<a href="#about">[ABOUT]</a>
+									<a href="#services">[SERVICES]</a>
+									<a href="https://polyphasicdevs.com/our-projects">[PROJECTS]</a>
+									<a href="#contact">[CONTACT]</a>
+								</nav>
+
+								<section id="home" class="terminal-section">
+									<div class="amber-text">
+										<div class="profile-picture">
+											<img src="images/profile-picture.png" alt="James Colby" />
+										</div>
+										<h1 class="amber-text">$ whoami</h1>
+										<h2>JAMES COLBY</h2>
+										<p class="dim-text">Founder & CEO of <a href="https://polyphasicdevs.com">Polyphasic Developers Ltd.</a></p>
+										<p class="dim-text">Co-Founder of <a href="https://maruinteractive.com">Maru Interactive</a>, proudly working on the upcoming My Maru app.</p>
+										<br>
+										<h1 class="amber-text">$ cat about.txt</h1>
+										<p class="dim-text">I build powerful applications, drive digital marketing success, and explore cutting-edge technology to solve complex problems. My work spans software development, cybersecurity, digital marketing, and strategic consulting, empowering businesses of all sizes to achieve their goals.</p>
+										<br>
+										<h1 class="amber-text">$ cat skills.txt</h1>
+										<p class="dim-text">✅ Development: React, React Native, Swift, .NET, and scalable cloud solutions.<br>
+										✅ Digital Marketing: PPC, SEO, Content Marketing, and Conversion Optimization.<br>
+										✅ Technical Leadership: Project Management, Strategic Consulting, and Digital Transformation.</p>
+									</div>
+								</section>
+
+								<section id="about" class="terminal-section">
+									<h1 class="amber-text">$ cat bio.txt</h1>
+									<p class="dim-text">I'm James Colby, a versatile developer, digital strategist, and technology enthusiast with over 15 years of experience. 
+									My journey has taken me from building immersive 360/VR applications for <a href="https://sevenmediainc.com">Seven Media Inc.</a> in Canada to leading digital marketing for <a href="https://lambdares.com">Lambda Research Corporation</a> for nearly a decade. 
+									I have also served as Technology Director at <a href="https://mobilizz.com">Mobilizz Inc.</a> for around half a decade, where I helped scale their technology and operations.</p>
+									<p class="dim-text">Beyond corporate achievements, I lead <a href="https://polyphasicdevs.com">Polyphasic Developers Ltd.</a>, delivering scalable applications and digital solutions to clients worldwide. 
+									As Co-Founder of <a href="https://maruinteractive.com">Maru Interactive</a>, I'm excited to bring the My Maru app to life—a digital companion powered by AI, helping users achieve their goals while customizing their digital world.</p>
+									<br>
+									<h1 class="amber-text">$ cat passion.txt</h1>
+									<p class="dim-text">Beyond my work, I'm a passionate technologist. I experiment with HAM radio, LoRa, and custom hardware projects like my cardputer as well as maintain my own home automation systems. 
+									Whether optimizing networks, exploring IoT, or building automation systems, I'm always pushing the limits of technology and indeed, my own personal development.</p>
+								</section>
+
+								<section id="services" class="terminal-section">
+									<h1 class="amber-text">$ ls services/</h1>
+									<ul class="dim-text">
+										<li><b>Web & Mobile Application Development:</b> Crafting scalable applications using React, React Native, Swift, .NET, and cloud-native solutions.</li>
+										<li><b>Digital Marketing:</b> PPC, SEO, Content Marketing, and Strategic Consulting to boost brand visibility and drive conversions.</li>
+										<li><b>Technical Consulting:</b> Providing strategic guidance in software development, networking, cybersecurity, and digital transformation.</li>
+										<li><b>AI-Powered Solutions:</b> Leveraging machine learning and automation to create smarter, data-driven applications.</li>
+										<li><b>360/VR Development:</b> Designing immersive experiences that captivate users.</li>
+									</ul>
+								</section>
+
+								<section id="contact" class="terminal-section">
+									<h1 class="amber-text">$ cat contact.txt</h1>
+									<p class="dim-text">Connect with me on:</p>
+									<div class="social-links">
+										<a href="https://linkedin.com/in/james-colby-director">[LINKEDIN]</a>
+										<a href="https://x.com/PolyphasicDev">[X]</a>
+										<a href="https://github.com/waruj1m">[GITHUB]</a>
+										<a href="https://www.instagram.com/polyphasicdevelopers/">[INSTAGRAM]</a>
+									</div>
+								</section>
+
+								<div class="status-bar amber-text dim-text">
+									<span>↑↓ SCROLL</span>
+									<span class="blink">● ONLINE</span>
+									<span></span>
+								  </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<div class="power-led"></div>
 		</div>
-
-		<nav class="terminal-nav">
-			<a href="#home">[HOME]</a>
-			<a href="#about">[ABOUT]</a>
-			<a href="#services">[SERVICES]</a>
-			<a href="https://polyphasicdevs.com/our-projects">[PROJECTS]</a>
-			<a href="#contact">[CONTACT]</a>
-		</nav>
-
-		<section id="home" class="terminal-section">
-		    <div class="home-flex">
-		        <div class="home-text">
-		            <div class="terminal-prompt">$ whoami</div>
-		            <h1>JAMES COLBY</h1>
-		            <p>Founder & CEO of <a href="https://polyphasicdevs.com">Polyphasic Developers Ltd.</a></p>
-		            <p>Co-Founder of <a href="https://maruinteractive.com">Maru Interactive</a>, proudly working on the upcoming My Maru app.</p>
-		            <div class="terminal-prompt">$ cat about.txt</div>
-		            <p>I build powerful applications, drive digital marketing success, and explore cutting-edge technology to solve complex problems. My work spans software development, cybersecurity, digital marketing, and strategic consulting, empowering businesses of all sizes to achieve their goals.</p>
-		            <div class="terminal-prompt">$ cat skills.txt</div>
-		            <p>✅ Development: React, React Native, Swift, .NET, and scalable cloud solutions.<br>
-		            ✅ Digital Marketing: PPC, SEO, Content Marketing, and Conversion Optimization.<br>
-		            ✅ Technical Leadership: Project Management, Strategic Consulting, and Digital Transformation.</p>
-		        </div>
-		        <div class="profile-picture">
-		            <img src="images/profile-picture.png" alt="James Colby" />
-		        </div>
-		    </div>
-		</section>
-
-		<section id="about" class="terminal-section">
-		    <div class="terminal-prompt">$ cat bio.txt</div>
-		    <p>I'm James Colby, a versatile developer, digital strategist, and technology enthusiast with over 15 years of experience. 
-		    My journey has taken me from building immersive 360/VR applications for <a href="https://sevenmediainc.com">Seven Media Inc.</a> in Canada to leading digital marketing for <a href="https://lambdares.com">Lambda Research Corporation</a> for nearly a decade. 
-		    I have also served as Technology Director at <a href="https://mobilizz.com">Mobilizz Inc.</a> for around half a decade, where I helped scale their technology and operations.</p>
-		    <p>Beyond corporate achievements, I lead <a href="https://polyphasicdevs.com">Polyphasic Developers Ltd.</a>, delivering scalable applications and digital solutions to clients worldwide. 
-		    As Co-Founder of <a href="https://maruinteractive.com">Maru Interactive</a>, I'm excited to bring the My Maru app to life—a digital companion powered by AI, helping users achieve their goals while customizing their digital world.</p>
- 
-		    <div class="terminal-prompt">$ cat passion.txt</div>
-		    <p>Beyond my work, I'm a passionate technologist. I experiment with HAM radio, LoRa, and custom hardware projects like my cardputer as well as maintain my own home automation systems. 
-		    Whether optimizing networks, exploring IoT, or building automation systems, I'm always pushing the limits of technology and indeed, my own personal development.</p>
-		</section>
-
-		<section id="services" class="terminal-section">
-		    <div class="terminal-prompt">$ ls services/</div>
-		    <ul>
-		        <li><b>Web & Mobile Application Development:</b> Crafting scalable applications using React, React Native, Swift, .NET, and cloud-native solutions.</li>
-		        <li><b>Digital Marketing:</b> PPC, SEO, Content Marketing, and Strategic Consulting to boost brand visibility and drive conversions.</li>
-		        <li><b>Technical Consulting:</b> Providing strategic guidance in software development, networking, cybersecurity, and digital transformation.</li>
-		        <li><b>AI-Powered Solutions:</b> Leveraging machine learning and automation to create smarter, data-driven applications.</li>
-		        <li><b>360/VR Development:</b> Designing immersive experiences that captivate users.</li>
-		    </ul>
-		</section>
-
-		<section id="contact" class="terminal-section">
-		    <div class="terminal-prompt">$ cat contact.txt</div>
-		    <p>Connect with me on:</p>
-		    <div class="social-links">
-		        <a href="https://linkedin.com/in/james-colby-director">[LINKEDIN]</a>
-		        <a href="https://x.com/PolyphasicDev">[X]</a>
-		        <a href="https://github.com/waruj1m">[GITHUB]</a>
-		        <a href="https://www.instagram.com/polyphasicdevelopers/">[INSTAGRAM]</a>
-		    </div>
-		</section>
 	</div>
 
 	<!-- jQuery -->
